@@ -21,7 +21,7 @@ interface IApiMiddlewareAction {
     }
 }
 
-const apiMiddleware = ({ dispatch }: MiddlewareAPI<Dispatch<AnyAction>>) => (next: (arg0: any) => void) => (action: IApiMiddlewareAction) => {
+const apiMiddleware = ({ dispatch }: MiddlewareAPI<Dispatch<AnyAction>>) => (next: (arg0: any) => void) => async (action: IApiMiddlewareAction) => {
     if (action) {
 
         next(action)
@@ -40,23 +40,16 @@ const apiMiddleware = ({ dispatch }: MiddlewareAPI<Dispatch<AnyAction>>) => (nex
         } = action.payload
 
         const dataOrParams = [ "GET", "DELETE" ].includes(method) ? "params" : "data"
+        const loginStorage = new LoginStorage()
+
+        const header = await loginStorage.getHeader()
         
-        // console.log("primeiro header", header)
-        // const token = window.sessionStorage.token
         axios.defaults.baseURL = settings.services.API_SERVICE
         axios.defaults.headers.common["Content-Type"] = "application/json charset=utf-8"
-        // axios.defaults.headers.common["access-token"] = header && header["access-token"]
-        // axios.defaults.headers.common["client"] = header && header["client"]
-        // axios.defaults.headers.common["uid"] = header && header["uid"]
-
-        const services = Object.keys(settings.services).filter((item) => url.includes(item))
-
-        if (services.length === 1) {
-            const service: string = services[0]
-
-            url = url.replace(service, settings.services[service])
-        } else {
-            url = settings.services.API_SERVICE + url
+        if(header && url !== settings.auth) {
+            axios.defaults.headers.common["access-token"] = header["access-token"]
+            axios.defaults.headers.common["client"] = header["client"]
+            axios.defaults.headers.common["uid"] = header["uid"]
         }
 
         const loading = (loadingSpinner: AnyAction) => {
@@ -65,20 +58,12 @@ const apiMiddleware = ({ dispatch }: MiddlewareAPI<Dispatch<AnyAction>>) => (nex
             }
         }
 
-        // const saveHeader = async (newHeader: any) => {
-            
-        //     const loginStorage = new LoginStorage()
-
-        //     const header = await loginStorage.getHeader()
-        //     if(!header || header != newHeader) {
-        //         loginStorage.putHeader(newHeader)
-        //     }
-        //     console.log("testeeeee", header)
-        // }
+        const saveHeader = async (newHeader: any) => {
+            loginStorage.putHeader(newHeader)
+        }
 
         loading(setIsLoadingSpinner(true))
         dispatch(apiStart())
-
         axios
             .request({
                 url,
@@ -87,15 +72,15 @@ const apiMiddleware = ({ dispatch }: MiddlewareAPI<Dispatch<AnyAction>>) => (nex
                 [dataOrParams]: data
             })
             .then((response) => {
-                const {data} = response
-                const header = {
-                    accessToken: response.headers["access-token"],
-                    client: response.headers["client"],
-                    uid: response.headers["uid"],
+                const { data } = response
+                
+                if(url === settings.auth) {
+                    saveHeader({
+                        "access-token": response.headers["access-token"],
+                        "client": response.headers["client"],
+                        "uid": response.headers["uid"],
+                    })
                 }
-                console.log("data", data)
-                console.log("headers", header)
-                // saveHeader(header)
                 dispatch(onSuccess(data))
             })
             .catch((error) => {

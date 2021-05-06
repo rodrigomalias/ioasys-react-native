@@ -15,5 +15,6 @@ enum EApiServices {
 export const apiServices = EApiServices
 
 export const settings = {
-    services: services
+    services: services,
+    auth: "users/auth/sign_in"
 }

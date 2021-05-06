@@ -1,16 +1,19 @@
+import { IEnterprise } from "models/enterprise/Ienterprise"
 import { apiRequest } from "../../Api"
 
 import * as type from "./Types"
 
-const getEnterprises = (params: any) => {
-    console.log("getEnterprises")
+interface IEnterpriseData { 
+    enterprises: Array<IEnterprise>
+}
+const getEnterprises = () => {
     return apiRequest({
         url: `/enterprises`,
         method: "GET",
-        onSuccess: (data: any) => {
+        onSuccess: (data: IEnterpriseData) => {
             return {
                 type: type.GET_ENTERPRISES_FULFILLED,
-                payload: data,
+                payload: data.enterprises
             }
         },
         onFailure: (error: any) => {
