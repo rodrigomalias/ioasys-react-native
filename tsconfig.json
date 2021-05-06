@@ -16,7 +16,7 @@
         "skipLibCheck": false ,
         "baseUrl": "./src"
     },
-    "include": ["src","./**/*.ts", "./**/*.tsx"],
+    "include": ["src","./**/*.ts", "./**/*.tsx", "eslintrc.js"],
     "exclude": [
         "node_modules",
         "babel.config.js",

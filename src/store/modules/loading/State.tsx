@@ -1,6 +1,6 @@
 export interface ILoadingReducer {
-    isLoadingSpinner: boolean,
-    setIsLoadingSpinner: Function,
+    isLoadingSpinner?: boolean,
+    setIsLoadingSpinner?: Function,
 }
 
 const initialState: ILoadingReducer = {

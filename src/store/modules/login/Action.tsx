@@ -2,14 +2,18 @@ import { apiRequest } from "../../Api"
 
 import * as type from "./Types"
 
-const postSignIn = () => {
-    console.log("postSignIn")
+export interface IPostSignInParams {
+    email: string,
+    password: string,
+}
+
+const postSignIn = (params: IPostSignInParams) => {
     return apiRequest({
         url: "/users/auth/sign_in",
         method: "POST",
         data: {
-            email: "testeapple@ioasys.com.br",
-            password: "12341234",
+            email: params.email,
+            password: params.password,
         },
         onSuccess: (data: any) => {
             return {
@@ -26,11 +30,4 @@ const postSignIn = () => {
     })
 }
 
-const setSaveHeader = (header:any) => {
-    return {
-        type: type.SET_SAVE_HEADER,
-        header: header
-    }
-}
-
-export { postSignIn, setSaveHeader }
+export { postSignIn }

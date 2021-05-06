@@ -4,9 +4,13 @@ import { Dispatch, MiddlewareAPI, AnyAction } from "redux"
 
 import { accessDenied, API, apiEnd, apiError, apiStart, API_ERROR } from "./Api"
 import { setIsLoadingSpinner } from "./modules/loading/Action"
-import { setSaveHeader } from "./modules/login/Action"
 import { LoginStorage } from "../storage/LoginStorage"
 
+interface IHeader {
+    "access-token": string
+    "client": string
+    "uid": string
+}
 interface IApiMiddlewareAction {
     type: string,
     error: any,
@@ -43,10 +47,11 @@ const apiMiddleware = ({ dispatch }: MiddlewareAPI<Dispatch<AnyAction>>) => (nex
         const loginStorage = new LoginStorage()
 
         const header = await loginStorage.getHeader()
-        
+
+        console.log("header", header)
         axios.defaults.baseURL = settings.services.API_SERVICE
         axios.defaults.headers.common["Content-Type"] = "application/json charset=utf-8"
-        if(header && url !== settings.auth) {
+        if (header && url !== settings.auth) {
             axios.defaults.headers.common["access-token"] = header["access-token"]
             axios.defaults.headers.common["client"] = header["client"]
             axios.defaults.headers.common["uid"] = header["uid"]
@@ -58,7 +63,7 @@ const apiMiddleware = ({ dispatch }: MiddlewareAPI<Dispatch<AnyAction>>) => (nex
             }
         }
 
-        const saveHeader = async (newHeader: any) => {
+        const saveHeader = async (newHeader: IHeader) => {
             loginStorage.putHeader(newHeader)
         }
 
@@ -73,15 +78,18 @@ const apiMiddleware = ({ dispatch }: MiddlewareAPI<Dispatch<AnyAction>>) => (nex
             })
             .then((response) => {
                 const { data } = response
-                
-                if(url === settings.auth) {
+
+                if (url === settings.auth) {
                     saveHeader({
                         "access-token": response.headers["access-token"],
                         "client": response.headers["client"],
                         "uid": response.headers["uid"],
+                    }).then(() => {
+                        dispatch(onSuccess(data))
                     })
+                } else {
+                    dispatch(onSuccess(data))
                 }
-                dispatch(onSuccess(data))
             })
             .catch((error) => {
                 const apiErrors = error.response.status === 401 ? "" : JSON.parse(error.request.response)

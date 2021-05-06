@@ -3,12 +3,12 @@ import { apiRequest } from "../../Api"
 
 import * as type from "./Types"
 
-interface IEnterpriseData { 
+interface IEnterpriseData {
     enterprises: Array<IEnterprise>
 }
 const getEnterprises = () => {
     return apiRequest({
-        url: `/enterprises`,
+        url: "/enterprises",
         method: "GET",
         onSuccess: (data: IEnterpriseData) => {
             return {

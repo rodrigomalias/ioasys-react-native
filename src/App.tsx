@@ -7,7 +7,7 @@
  *
  * @format
  */
-
+import "react-native-gesture-handler"
 import React from "react"
 import {
     SafeAreaView,
@@ -34,35 +34,8 @@ import enterpriseInitialState from "./store/modules/enterprise/State"
 import { store } from "./store/Store"
 import LoginContainer from "./features/login/LoginContainer"
 import EnterprisesContainer from "./features/enterprises/EnterprisesContainer"
-
-const Section: React.FC<{title: string}> = ({ children, title }) => {
-    const isDarkMode = useColorScheme() === "dark"
-    
-    return (
-        <View style={styles.sectionContainer}>
-            <Text 
-                style={[
-                    styles.sectionTitle,
-                    {
-                        color: isDarkMode ? Colors.white : Colors.black
-                    }
-                ]}
-            >
-                {title}
-            </Text>
-            <Text
-                style={[
-                    styles.sectionDescription,
-                    {
-                        color: isDarkMode ? Colors.light : Colors.dark
-                    }
-                ]}
-            >
-                {children}
-            </Text>
-        </View>
-    )
-}
+import { MainNavigator } from "./navigation"
+import { NavigationContainer } from "@react-navigation/native"
 
 const App = () => {
     const isDarkMode = useColorScheme() === "dark"
@@ -73,42 +46,22 @@ const App = () => {
 
     return (
         <Provider store={store}>
-            <SafeAreaView style={backgroundStyle}>
-                <StatusBar
-                    barStyle={isDarkMode ? "light-content" : "dark-content"}
-                />
-                <ScrollView
-                    contentInsetAdjustmentBehavior="automatic"
-                    style={backgroundStyle}
-                >
-                    <Header />
-                    <LoginContainer {...loginInitialState}/>
-                    <LoadingSpinner {...loadingInitialState}/>
-                    <EnterprisesContainer {...enterpriseInitialState}/>
-                    <View
-                        style={{
-                            backgroundColor: isDarkMode
-                                ? Colors.black
-                                : Colors.white
-                        }}
+            <NavigationContainer>
+                {/* <SafeAreaView style={backgroundStyle}> */}
+                <StatusBar barStyle="light-content" backgroundColor={"#01814e"} />
+                <LoadingSpinner {...loadingInitialState}/>
+                <MainNavigator/>
+                {/* <ScrollView
+                        contentInsetAdjustmentBehavior="automatic"
+                        style={backgroundStyle}
                     >
-                        <Section title="Step One">
-                            Edit <Text style={styles.highlight}>App.js</Text> to
-                            change this screen and then come back to see your edits.
-                        </Section>
-                        <Section title="See Your Changes">
-                            <ReloadInstructions />
-                        </Section>
-                        <Section title="Debug">
-                            <DebugInstructions />
-                        </Section>
-                        <Section title="Learn More">
-                            Read the docs to discover what to do next:
-                        </Section>
-                        <LearnMoreLinks />
-                    </View>
-                </ScrollView>
-            </SafeAreaView>
+                        
+                        <LoginContainer {...loginInitialState}/>
+                        
+                        <EnterprisesContainer {...enterpriseInitialState}/>
+                    </ScrollView> */}
+                {/* </SafeAreaView> */}
+            </NavigationContainer>
         </Provider>
     )
 }

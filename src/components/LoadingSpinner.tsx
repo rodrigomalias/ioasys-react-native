@@ -6,15 +6,16 @@ import { ILoadingReducer } from "../store/modules/loading/State"
 import { appReducers } from "../store/Store"
 
 export interface LoadingSpinnerProps {
-
+    loading?: boolean,
+    loadingColor?: string
 }
 
 function LoadingSpinner(props: LoadingSpinnerProps & ILoadingReducer) {
-    const { isLoadingSpinner,  } = props
+    const { isLoadingSpinner, loading, loadingColor } = props
     return (
-        isLoadingSpinner ? (
-            <View style={styles.loadSpinner}>
-                <ActivityIndicator size="large" color={'#01814e'} />
+        isLoadingSpinner || loading ? (
+            <View style={loading ? styles.normalSpinner : styles.loadSpinner}>
+                <ActivityIndicator size={"large"} color={loadingColor ? loadingColor : "#01814e"} />
             </View>
         ) : (
             <></>
@@ -34,16 +35,16 @@ export default connect(isLoadingReducerData, {
 
 const styles = StyleSheet.create({
     loadSpinner: {
-      height: Dimensions.get('window').height,
-      justifyContent: 'center',
+        justifyContent: "center",
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        top: 0,
+        margin: "auto",
+        zIndex: 100,
     },
-    totalHeroesContainer: {
-      flex: 1,
-      padding: 20,
-      alignItems: 'center',
-    },
-    totalHeroes: {
-      fontWeight: 'bold',
-      fontSize: 16,
+    normalSpinner: {
+
     },
 })

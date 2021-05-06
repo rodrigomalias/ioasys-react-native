@@ -4,8 +4,8 @@ export interface IEnterprise {
     description: string,
     email_enterprise: string,
     enterprise_name: string,
-    enterprise_type:  {
-        enterprise_type_name: string, 
+    enterprise_type: {
+        enterprise_type_name: string,
         id: number
     },
     facebook?: string,
