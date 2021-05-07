@@ -1,3 +1,8 @@
+# App Gif
+<p align="center">
+  <img src="./assets/app-preview.gif" width="300" height="600"/>
+</p>
+
 # Configuração LOCALHOST
 - Necessário ter configurado e instalado o Android Studio assim como o React Native Cli.
 - Necessário ter um smartphone ou emulador configurado
@@ -60,5 +65,5 @@
 # Sugestões
 
 * Se possível, atualizar collection do postman no repositório.
-* Endpoint de exibição dos tipos de uma enterprise(na collection) está diferente do que a API responde.
+* Se possível, atualizar endpoint de exibição dos tipos de uma enterprise(na collection) está diferente do que a API responde.
 * Se possível, adicionar na API request de erro para ser possível fazer uma integração completa.
