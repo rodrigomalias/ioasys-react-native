@@ -1,5 +1,5 @@
 import LoadingSpinner from "../../components/LoadingSpinner"
-import { IEnterprise } from "models/enterprise/Ienterprise"
+import { IEnterprise } from "../../models/enterprise/Ienterprise"
 import * as React from "react"
 import { FlatList, ListRenderItemInfo, StyleSheet, Text, View } from "react-native"
 import { hasObject, hasArray, translation, firstLetter } from "../../utils"
@@ -8,10 +8,11 @@ import { EnterprisesItem } from "./EnterprisesItem"
 import { colors } from "../../colors"
 import { ILoadingReducer } from "../../store/modules/loading/State"
 import { EnterprisesSearch } from "./EnterprisesSearch"
+import { inTest } from "../../../jest/testEnvironment"
 
 export const Enterprises = (props: IEnterpriseReducer & ILoadingReducer) => {
     const { getEnterprises, enterprises, errorEnterprises, getEnterprisesNameOrType, isLoadingSpinner } = props
-    const [ loading, setLoading ] = React.useState(true)
+    const [ loading, setLoading ] = React.useState(inTest ? false : true)
 
     React.useEffect(() => {
         getEnterprises()
@@ -52,13 +53,16 @@ export const Enterprises = (props: IEnterpriseReducer & ILoadingReducer) => {
                 </View>
             ) : (
                 <FlatList
+                    testID={"test_enterprises_flatlist"}
                     data={ enterprises }
                     refreshing={loading}
                     extraData={ enterprises.length }
                     keyExtractor={ _keyExtractor }
                     renderItem={ _renderItem }
                     ListEmptyComponent={
-                        <Text style={styles.errorMessage}>
+                        <Text
+                            testID={"test_enterprises_flatlist_empty"}
+                            style={styles.errorMessage}>
                             {firstLetter(translation("enterprise.error"))}
                         </Text>
                     }

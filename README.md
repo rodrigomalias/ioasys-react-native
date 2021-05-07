@@ -47,8 +47,11 @@
   * `eslint-plugin-react`: Configurações do ESLint
   * `eslint-plugin-react-hooks`: Configurações do ESLint
 * `prettier`: Padronização de código
-* `jest`: Utilizada para criação de testes em componentes
-
+* `jest`: Utilizada para criação de testes unitários em componentes
+  * `@types/jes`: Necessário para o funcionamento do jest
+  * `@testing-library/jest-native`: Necessário para testes em jest
+  * `@testing-library/react-native`: Necessário para testes em react native components
+  * `jsdom`: Necessário para o funcionamento do jest
 # Utils
 
 * Caso aconteça algum problema relacionado ao JDK do Android

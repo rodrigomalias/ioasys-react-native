@@ -1,4 +1,4 @@
-import { IEnterprise } from "models/enterprise/Ienterprise"
+import { IEnterprise } from "../../../models/enterprise/Ienterprise"
 import { apiRequest } from "../../Api"
 import { translation, firstLetter } from "../../../utils"
 

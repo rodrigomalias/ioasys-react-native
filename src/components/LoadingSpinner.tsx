@@ -12,6 +12,7 @@ export default function LoadingSpinner(props: LoadingSpinnerProps) {
     return (
         loading ? (
             <ActivityIndicator
+                testID={"ActivityIndicator"}
                 size={"large"}
                 color={loadingColor ? loadingColor : colors.primaryDark} />
         ) : (

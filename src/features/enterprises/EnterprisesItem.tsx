@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native"
 import { colors } from "../../colors"
-import { IEnterprise } from "models/enterprise/Ienterprise"
+import { IEnterprise } from "../../models/enterprise/Ienterprise"
 import * as React from "react"
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { Icon } from "react-native-elements"
@@ -23,9 +23,15 @@ export const EnterprisesItem = (props: IEnterprisesItem) => {
     }, [ enterprise.enterprise_name, enterprise.id, navigation ])
 
     return (
-        <TouchableOpacity onPress={handleLogin} style={styles.enterpriseContainer}>
+        <TouchableOpacity
+            testID={"test_enterprises_item_button"}
+            onPress={handleLogin}
+            style={styles.enterpriseContainer}>
             <View style={styles.imageContainer}>
-                <Image source={{ uri: imageUrl }} style={styles.image} />
+                <Image
+                    testID={"test_enterprises_item_image"}
+                    source={{ uri: imageUrl }}
+                    style={styles.image} />
             </View>
             <View style={styles.nameContainer}>
                 <Text style={styles.name}>

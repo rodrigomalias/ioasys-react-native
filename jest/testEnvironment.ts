@@ -1,0 +1,1 @@
+export const inTest:boolean = process.env.NODE_ENV === "test"

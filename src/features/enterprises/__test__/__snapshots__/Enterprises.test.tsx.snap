@@ -1,0 +1,557 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Enterprises/> should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#F5FCFF",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5FCFF",
+        "borderBottomColor": "#999",
+        "borderBottomWidth": 0.5,
+        "elevation": 5,
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "padding": 5,
+        "paddingBottom": 20,
+        "paddingTop": 20,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 2,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 3.84,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 5,
+          "borderWidth": 0.5,
+          "flex": 1,
+          "height": 45,
+          "justifyContent": "center",
+          "margin": 5,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      >
+        <RNCPicker
+          items={
+            Array [
+              Object {
+                "label": "Tipo",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 0,
+              },
+              Object {
+                "label": "Agro",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 1,
+              },
+              Object {
+                "label": "Aviation",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 2,
+              },
+              Object {
+                "label": "Biotech",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 3,
+              },
+              Object {
+                "label": "Eco",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 4,
+              },
+              Object {
+                "label": "Ecommerce",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 5,
+              },
+              Object {
+                "label": "Education",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 6,
+              },
+              Object {
+                "label": "Fashion",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 7,
+              },
+              Object {
+                "label": "Fintech",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 8,
+              },
+              Object {
+                "label": "Food",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 9,
+              },
+              Object {
+                "label": "Games",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 10,
+              },
+              Object {
+                "label": "Health",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 11,
+              },
+              Object {
+                "label": "IOT",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 12,
+              },
+              Object {
+                "label": "Logistics",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 13,
+              },
+              Object {
+                "label": "Media",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 14,
+              },
+              Object {
+                "label": "Mining",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 15,
+              },
+              Object {
+                "label": "Products",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 16,
+              },
+              Object {
+                "label": "Real Estate",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 17,
+              },
+              Object {
+                "label": "Service",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 18,
+              },
+              Object {
+                "label": "Smart City",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 19,
+              },
+              Object {
+                "label": "Social",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 20,
+              },
+              Object {
+                "label": "Software",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 21,
+              },
+              Object {
+                "label": "Technology",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 22,
+              },
+              Object {
+                "label": "Tourism",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 23,
+              },
+              Object {
+                "label": "Transport",
+                "testID": undefined,
+                "textColor": undefined,
+                "value": 24,
+              },
+            ]
+          }
+          onChange={[Function]}
+          selectedIndex={0}
+          style={
+            Array [
+              Object {
+                "height": 216,
+              },
+              undefined,
+            ]
+          }
+          testID="test_enterprises_search_picker"
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 5,
+          "borderWidth": 0.5,
+          "flex": 1,
+          "height": 45,
+          "justifyContent": "center",
+          "margin": 5,
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCompleteType="off"
+        onChangeText={[Function]}
+        placeholder="Nome"
+        rejectResponderTermination={true}
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+        testID="test_enterprises_search_input"
+        underlineColorAndroid="transparent"
+        value=""
+      />
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#01814e",
+          "borderRadius": 25,
+          "height": 50,
+          "justifyContent": "center",
+          "marginLeft": 10,
+          "marginRight": 10,
+          "opacity": 1,
+          "textAlign": "center",
+          "width": 50,
+        }
+      }
+      testID="test_enterprises_search_button"
+    >
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "#FFFFFF",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "overflow": "hidden",
+            }
+          }
+        >
+          <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#F5FCFF",
+                      "fontSize": 20,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "fontFamily": "FontAwesome",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+                testID="iconIcon"
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    ListEmptyComponent={
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "fontWeight": "bold",
+            "marginLeft": 5,
+            "marginRight": 5,
+            "marginTop": 20,
+            "textAlign": "center",
+          }
+        }
+        testID="test_enterprises_flatlist_empty"
+      >
+        Nenhum empreendimento encontrado
+      </Text>
+    }
+    data={
+      Array [
+        Object {
+          "city": "SP",
+          "country": "Brazil",
+          "description": "Description test",
+          "email_enterprise": "email@email.com",
+          "enterprise_name": "Company test",
+          "enterprise_type": Object {
+            "enterprise_type_name": "Type test",
+            "id": 1,
+          },
+          "facebook": undefined,
+          "id": 1,
+          "linkedin": undefined,
+          "own_enterprise": false,
+          "phone": undefined,
+          "photo": "photo.png",
+          "share_price": 5000,
+          "shares": undefined,
+          "twitter": undefined,
+          "value": 500,
+        },
+      ]
+    }
+    disableVirtualization={false}
+    extraData={1}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshing={false}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    testID="test_enterprises_flatlist"
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderBottomColor": "#C0C0C0",
+              "borderBottomWidth": 1,
+              "borderRadius": 10,
+              "elevation": 5,
+              "flex": 1,
+              "flexDirection": "row",
+              "height": 80,
+              "margin": 5,
+              "opacity": 1,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.25,
+              "shadowRadius": 3.84,
+            }
+          }
+          testID="test_enterprises_item_button"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "https://empresas.ioasys.com.br/photo.png",
+                }
+              }
+              style={
+                Object {
+                  "borderColor": "#C0C0C0",
+                  "borderRadius": 50,
+                  "borderWidth": 1,
+                  "height": 60,
+                  "shadowColor": "#000000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 2,
+                  },
+                  "shadowOpacity": 0.25,
+                  "shadowRadius": 3.84,
+                  "width": 60,
+                }
+              }
+              testID="test_enterprises_item_image"
+            />
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1.5,
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Company test
+            </Text>
+            <Text
+              style={
+                Object {
+                  "fontSize": 14,
+                }
+              }
+            >
+              Type test
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "justifyContent": "center",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "overflow": "hidden",
+                }
+              }
+            >
+              <View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text
+                    allowFontScaling={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#999",
+                          "fontSize": 40,
+                        },
+                        Object {
+                          "backgroundColor": "transparent",
+                        },
+                        Object {
+                          "fontFamily": "FontAwesome",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                    testID="iconIcon"
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

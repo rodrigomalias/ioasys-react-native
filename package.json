@@ -6,9 +6,11 @@
         "android": "react-native run-android",
         "ios": "react-native run-ios",
         "start": "react-native start",
-        "test": "jest",
         "adb": "adb reverse tcp:9090 tcp:9090 && adb reverse tcp:3000 tcp:3000 && adb reverse tcp:9001 tcp:9001 && adb reverse tcp:8081 tcp:8081 && adb reverse tcp:8097 tcp:8097",
-        "android:clean": "cd android && gradlew clean"
+        "android:clean": "cd android && gradlew clean",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage"
     },
     "dependencies": {
         "@react-native-async-storage/async-storage": "^1.15.4",
@@ -34,6 +36,8 @@
         "@babel/core": "^7.12.9",
         "@babel/runtime": "^7.12.5",
         "@react-native-community/eslint-config": "^2.0.0",
+        "@testing-library/jest-native": "^4.0.1",
+        "@testing-library/react-native": "^7.2.0",
         "@types/i18n-js": "^3.8.0",
         "@types/jest": "^26.0.20",
         "@types/react-native": "^0.64.0",
@@ -48,6 +52,7 @@
         "eslint-plugin-react": "^7.23.2",
         "eslint-plugin-react-hooks": "1.7.0",
         "jest": "^26.6.3",
+        "jsdom": "^16.5.3",
         "metro-react-native-babel-preset": "^0.64.0",
         "prettier": "^2.2.1",
         "react-test-renderer": "17.0.1",
@@ -58,6 +63,27 @@
     },
     "jest": {
         "preset": "react-native",
+        "collectCoverage": false,
+        "timers": "fake",
+        "testEnvironment": "jsdom",
+        "setupFilesAfterEnv": [
+            "<rootDir>/jest/setup.js",
+            "<rootDir>/node_modules/react-native-gesture-handler/jestSetup.js",
+            "@testing-library/jest-native/extend-expect"
+        ],
+        "testPathIgnorePatterns": [
+            "/node_modules"
+        ],
+        "transform": {
+            "^.+\\.js$": "./node_modules/react-native/jest/preprocessor.js"
+        },
+        "setupFiles": [
+            "<rootDir>/jest/setup.js",
+            "<rootDir>/node_modules/react-native-gesture-handler/jestSetup.js"
+        ],
+        "transformIgnorePatterns": [
+            "node_modules/(?!(jest-)?react-native|@react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|sentry-expo|native-base|unimodules-permissions-interface)"
+        ],
         "moduleFileExtensions": [
             "ts",
             "tsx",

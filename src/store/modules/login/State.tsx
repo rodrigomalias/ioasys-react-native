@@ -1,4 +1,4 @@
-import { ILogin } from "models/login/ILogin"
+import { ILogin } from "../../../models/login/ILogin"
 
 export interface ILoginReducer {
     login: ILogin,

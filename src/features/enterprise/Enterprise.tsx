@@ -4,17 +4,18 @@ import { hasObject, translation, firstLetter } from "../../utils"
 import { IEnterpriseReducer } from "../../store/modules/enterprise/State"
 import { RouteProp, useRoute } from "@react-navigation/native"
 import LoadingSpinner from "../../components/LoadingSpinner"
+import { inTest } from "../../../jest/testEnvironment"
 import { colors } from "../../colors"
 
 export const Enterprise = (props: IEnterpriseReducer) => {
     const { getEnterpriseById, enterprise, errorEnterprise } = props
 
-    const [ loading, setLoading ] = React.useState(true)
+    const [ loading, setLoading ] = React.useState(inTest ? false : true)
 
     const route: RouteProp<{ params: { enterpriseId: number } }, "params"> = useRoute()
     const { enterpriseId } = route.params
 
-    const imageUrl = `https://empresas.ioasys.com.br/${enterprise.photo}`
+    const imageUrl = `https://empresas.ioasys.com.br/${enterprise?.photo}`
 
     React.useEffect(() => {
         getEnterpriseById({ enterpriseId })
@@ -28,13 +29,16 @@ export const Enterprise = (props: IEnterpriseReducer) => {
 
     return (
         <View style={styles.container}>
-            <ScrollView>
+            <ScrollView testID={"test_enterprise_scrollview"}>
                 <View style={styles.contentContainer}>
                     {loading ? (
                         <LoadingSpinner loading={loading}/>
                     ) : (
                         <View style={styles.enterpriseContainer}>
-                            <Image source={{ uri: imageUrl }} style={styles.image} />
+                            <Image
+                                testID={"test_enterprise_image"}
+                                source={{ uri: imageUrl }}
+                                style={styles.image} />
                             <Text style={styles.enterpriseDescription}>
                                 {enterprise.description}
                             </Text>

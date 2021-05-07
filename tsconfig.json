@@ -16,12 +16,12 @@
         "resolveJsonModule": true,
         "esModuleInterop": true,
     },
-    "include": ["src","./**/*.ts", "./**/*.tsx", "eslintrc.js"],
-    "exclude": [
-        "node_modules",
-        "babel.config.js",
-        "metro.config.js",
-        "jest.config.js",
-        "__tests__/**/*-test.ts"
-    ]
+    // "include": ["src","./**/*.ts", "./**/*.tsx", "eslintrc.js", "jest/setup.js"],
+    // "exclude": [
+    //     "node_modules",
+    //     "babel.config.js",
+    //     "metro.config.js",
+    //     "jest.config.js",
+    //     "__tests__/**/*-test.ts"
+    // ]
 }

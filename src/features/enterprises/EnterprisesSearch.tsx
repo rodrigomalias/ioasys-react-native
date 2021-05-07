@@ -26,6 +26,7 @@ export const EnterprisesSearch = (props: IEnterpriseSearch) => {
         <View style={styles.containerHeader}>
             <View style={styles.inputView}>
                 <Picker
+                    testID={"test_enterprises_search_picker"}
                     selectedValue={type}
                     style={styles.input}
                     onValueChange={(itemValue: React.SetStateAction<number>) => setType(itemValue)}
@@ -43,13 +44,17 @@ export const EnterprisesSearch = (props: IEnterpriseSearch) => {
             </View>
             <View style={styles.inputView}>
                 <TextInput
+                    testID={"test_enterprises_search_input"}
                     value={name}
                     style={styles.input}
                     autoCompleteType={"off"}
                     placeholder={firstLetter(translation("name"))}
                     onChangeText={(name) => setName(name)}/>
             </View>
-            <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
+            <TouchableOpacity
+                testID={"test_enterprises_search_button"}
+                style={styles.searchButton}
+                onPress={handleSearch}>
                 <Text style={styles.searchButtonText}>
                     <Icon
                         name='search'

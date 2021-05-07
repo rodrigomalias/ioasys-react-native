@@ -2,7 +2,7 @@ import { useNavigation } from "@react-navigation/native"
 import { colors } from "../../colors"
 import * as React from "react"
 import { Text, TouchableOpacity, View, StyleSheet, TextInput, Image } from "react-native"
-import { ILoginReducer } from "store/modules/login/State"
+import { ILoginReducer } from "../../store/modules/login/State"
 import LoadingSpinner from "../../components/LoadingSpinner"
 import { translation, hasObject } from "../../utils"
 import { ILoadingReducer } from "../../store/modules/loading/State"
@@ -11,8 +11,8 @@ export const Login = (props: ILoginReducer & ILoadingReducer) => {
     const { postSignIn, login, errorLogin, isLoadingSpinner } = props
 
     const navigation = useNavigation()
-    const [ email, setEmail ] = React.useState("testeapple@ioasys.com.br")
-    const [ password, setPassword ] = React.useState("12341234")
+    const [ email, setEmail ] = React.useState("")
+    const [ password, setPassword ] = React.useState("")
     const [ loading, setLoading ] = React.useState(false)
 
     React.useEffect(() => {
@@ -30,10 +30,12 @@ export const Login = (props: ILoginReducer & ILoadingReducer) => {
     return (
         <View style={styles.container}>
             <Image
+                testID={"test_login_image"}
                 style={styles.image}
                 source={require("../../../assets/logo_ioasys.png")} />
             <View style={styles.inputView}>
                 <TextInput
+                    testID={"test_login_email_input"}
                     value={email}
                     style={styles.textInput}
                     placeholder={translation("login.email")}
@@ -41,6 +43,7 @@ export const Login = (props: ILoginReducer & ILoadingReducer) => {
             </View>
             <View style={styles.inputView}>
                 <TextInput
+                    testID={"test_login_password_input"}
                     value={password}
                     style={styles.textInput}
                     placeholder={translation("login.password")}
@@ -51,6 +54,7 @@ export const Login = (props: ILoginReducer & ILoadingReducer) => {
                 {errorLogin}
             </Text>
             <TouchableOpacity
+                testID={"test_login_handle_button"}
                 onPress={handleLogin}
                 style={styles.loginButton}>
                 <Text style={styles.loading}>
