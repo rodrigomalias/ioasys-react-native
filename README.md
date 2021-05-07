@@ -30,8 +30,8 @@
 * `axios`: Utilizada para fazer requisição na API
 * `i18n-js`: Utilizada para JSON de textos fixos e possivelmente tradução
   * `@types/i18n-js`: Necessária para o funcionamento da `i18n-js`
-* `react-native-elements`: Utilizada exibir ícone
-  * `react-native-vector-icons`: Necessária para exibir ícone
+* `react-native-elements`: Utilizada para exibição de ícone
+  * `react-native-vector-icons`: Necessária para exibição de ícone
 * `redux`: Utilizada para armazenamento de State
 * `react-redux`: Utilizada para armazenamento de State
 * `redux-thunk`: Middleware para Actions assíncronas
@@ -56,3 +56,9 @@
 
 * Caso aconteça algum problema relacionado ao JDK do Android
   - [https://stackoverflow.com/questions/39010338/java-home-supplied-via-org-gradle-java-home-is-invalid-invalid-directory-us](https://stackoverflow.com/questions/39010338/java-home-supplied-via-org-gradle-java-home-is-invalid-invalid-directory-us)
+
+# Sugestões
+
+* Se possível, atualizar collection do postman no repositório.
+* Endpoint de exibição dos tipos de uma enterprise(na collection) está diferente do que a API responde.
+* Se possível, adicionar na API request de erro para ser possível fazer uma integração completa.
