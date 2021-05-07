@@ -11,22 +11,32 @@ export default function enterpriseReducer(state = initialState, action: IEnterpr
         case type.GET_ENTERPRISES_FULFILLED:
             return {
                 ...state,
-                enterprises: action.payload
+                enterprises: action.payload,
             }
         case type.GET_ENTERPRISES_REJECTED:
             return {
                 ...state,
-                errorEnterprises: action.payload
+                errorEnterprises: action.payload,
             }
         case type.GET_ENTERPRISE_BY_ID_FULFILLED:
             return {
                 ...state,
-                enterprise: action.payload
+                enterprise: action.payload,
             }
         case type.GET_ENTERPRISE_BY_ID_REJECTED:
             return {
                 ...state,
-                errorEnterprise: action.payload
+                errorEnterprise: action.payload,
+            }
+        case type.GET_ENTERPRISES_NAME_OR_TYPE_FULFILLED:
+            return {
+                ...state,
+                enterprises: action.payload,
+            }
+        case type.GET_ENTERPRISES_NAME_OR_TYPE_REJECTED:
+            return {
+                ...state,
+                errorEnterprises: action.payload,
             }
         default:
             return state

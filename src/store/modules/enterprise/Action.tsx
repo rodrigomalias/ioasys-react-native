@@ -3,14 +3,14 @@ import { apiRequest } from "../../Api"
 
 import * as type from "./Types"
 
-interface IEnterpriseData {
+interface IEnterprisesData {
     enterprises: Array<IEnterprise>
 }
 const getEnterprises = () => {
     return apiRequest({
         url: "/enterprises",
         method: "GET",
-        onSuccess: (data: IEnterpriseData) => {
+        onSuccess: (data: IEnterprisesData) => {
             return {
                 type: type.GET_ENTERPRISES_FULFILLED,
                 payload: data.enterprises
@@ -25,14 +25,20 @@ const getEnterprises = () => {
     })
 }
 
-const getEnterpriseById = (params: any) => {
+interface IEnterpriseData {
+    enterprise: IEnterprise
+}
+interface IEnterpriseByIdParams {
+    enterpriseId: number
+}
+const getEnterpriseById = (params: IEnterpriseByIdParams) => {
     return apiRequest({
-        url: `/enterprises/${params.id_enterprise}`,
+        url: `/enterprises/${params.enterpriseId}`,
         method: "GET",
-        onSuccess: (data: any) => {
+        onSuccess: (data: IEnterpriseData) => {
             return {
                 type: type.GET_ENTERPRISE_BY_ID_FULFILLED,
-                payload: data,
+                payload: data.enterprise,
             }
         },
         onFailure: (error: any) => {
@@ -44,4 +50,33 @@ const getEnterpriseById = (params: any) => {
     })
 }
 
-export { getEnterprises, getEnterpriseById }
+interface IEnterpriseNameOrTypParams {
+    name: string,
+    type: string,
+}
+const getEnterprisesNameOrType = (params: IEnterpriseNameOrTypParams) => {
+    console.log(params)
+    return apiRequest({
+        url: `/enterprises?enterprise_types=${params.type}&name=${params.name}`,
+        method: "GET",
+        data: {
+            name: params.name,
+            type: params.type
+        },
+        onSuccess: (data: IEnterprisesData) => {
+            console.log("data", data)
+            return {
+                type: type.GET_ENTERPRISES_NAME_OR_TYPE_FULFILLED,
+                payload: data.enterprises,
+            }
+        },
+        onFailure: (error: any) => {
+            return {
+                type: type.GET_ENTERPRISES_NAME_OR_TYPE_REJECTED,
+                payload: error,
+            }
+        }
+    })
+}
+
+export { getEnterprises, getEnterpriseById, getEnterprisesNameOrType }

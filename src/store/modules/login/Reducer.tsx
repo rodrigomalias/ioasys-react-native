@@ -11,12 +11,12 @@ export default function loginReducer(state = initialState, action: ILoginAction)
         case type.POST_SIGN_IN_FULFILLED:
             return {
                 ...state,
-                login: action.payload
+                login: action.payload,
             }
         case type.POST_SIGN_IN_REJECTED:
             return {
                 ...state,
-                errorLogin: action.payload
+                errorLogin: action.payload,
             }
         default:
             return state

@@ -15,6 +15,7 @@ export interface IEnterprise {
     phone?: string,
     photo: string,
     share_price: number,
+    shares?: number,
     twitter?: string,
     value: number
 }

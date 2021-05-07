@@ -1,7 +1,9 @@
 import { useNavigation } from "@react-navigation/native"
+import { colors } from "../../colors"
 import { IEnterprise } from "models/enterprise/Ienterprise"
 import * as React from "react"
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import { Icon } from "react-native-elements"
 
 interface IEnterprisesItem {
     enterprise: IEnterprise
@@ -26,8 +28,19 @@ export const EnterprisesItem = (props: IEnterprisesItem) => {
                 <Image source={{ uri: imageUrl }} style={styles.image} />
             </View>
             <View style={styles.nameContainer}>
-                <Text style={styles.name}>{enterprise.enterprise_name}</Text>
-                <Text style={styles.enterpriseType}>{enterprise.enterprise_type.enterprise_type_name}</Text>
+                <Text style={styles.name}>
+                    {enterprise.enterprise_name}
+                </Text>
+                <Text style={styles.enterpriseType}>
+                    {enterprise.enterprise_type.enterprise_type_name}
+                </Text>
+            </View>
+            <View style={ styles.columnArrow }>
+                <Icon
+                    name='angle-right'
+                    type='font-awesome'
+                    size={40}
+                    color={colors.darkGray}/>
             </View>
         </TouchableOpacity>
     )
@@ -40,10 +53,10 @@ const styles = StyleSheet.create({
         height: 80,
         flexDirection: "row",
         borderBottomWidth: 1,
-        backgroundColor: "white",
-        borderBottomColor: "#C0C0C0",
+        backgroundColor: colors.white,
+        borderBottomColor: colors.lightGray,
         borderRadius: 10,
-        shadowColor: "#000",
+        shadowColor: colors.black,
         shadowOffset: {
             width: 0,
             height: 2,
@@ -53,7 +66,7 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     imageContainer: {
-        flex: 0.5,
+        flex: 1,
         alignItems: "center",
         justifyContent: "center",
     },
@@ -73,8 +86,8 @@ const styles = StyleSheet.create({
         height: 60,
         borderRadius: 50,
         borderWidth: 1,
-        borderColor: "#C0C0C0",
-        shadowColor: "#000",
+        borderColor: colors.lightGray,
+        shadowColor: colors.black,
         shadowOffset: {
             width: 2,
             height: 2,
@@ -82,4 +95,9 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
     },
+    columnArrow: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    }
 })

@@ -1,8 +1,9 @@
+import { translation, firstLetter } from "../../../utils"
 import { apiRequest } from "../../Api"
 
 import * as type from "./Types"
 
-export interface IPostSignInParams {
+interface IPostSignInParams {
     email: string,
     password: string,
 }
@@ -21,7 +22,8 @@ const postSignIn = (params: IPostSignInParams) => {
                 payload: data,
             }
         },
-        onFailure: (error: any) => {
+        onFailure: () => {
+            const error = firstLetter(translation("login.error"))
             return {
                 type: type.POST_SIGN_IN_REJECTED,
                 payload: error,

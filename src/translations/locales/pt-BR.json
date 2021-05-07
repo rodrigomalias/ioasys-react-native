@@ -1,0 +1,16 @@
+{
+    "login": {
+        "title": "Login",
+        "button": "acessar",
+        "email": "email",
+        "password": "senha",
+        "error": "email ou senha incorretos"
+    },
+    "enterprise": {
+        "singular": "Empresa",
+        "plural": "Empresas"
+    },
+    "type": "tipo",
+    "name": "nome",
+    "address": "endereço"
+}

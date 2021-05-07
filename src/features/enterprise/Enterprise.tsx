@@ -1,30 +1,86 @@
 import * as React from "react"
-import { FlatList, ListRenderItemInfo, StyleSheet, Text, View } from "react-native"
-import { hasObject, hasArray } from "../../utils"
-import initialState, { IEnterpriseReducer } from "../../store/modules/enterprise/State"
-import { RouteProp, useNavigation, useRoute } from "@react-navigation/native"
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native"
+import { hasObject, translation, firstLetter } from "../../utils"
+import { IEnterpriseReducer } from "../../store/modules/enterprise/State"
+import { RouteProp, useRoute } from "@react-navigation/native"
+import LoadingSpinner from "../../components/LoadingSpinner"
+import { colors } from "../../colors"
 
 export const Enterprise = (props: IEnterpriseReducer) => {
     const { getEnterpriseById, enterprise, errorEnterprise } = props
 
-    const route: RouteProp<{ params: { enterpriseId: number } }, "params"> = useRoute()
     const [ loading, setLoading ] = React.useState(true)
 
-    console.log("teste", enterprise)
+    const route: RouteProp<{ params: { enterpriseId: number } }, "params"> = useRoute()
+    const { enterpriseId } = route.params
+
+    const imageUrl = `https://empresas.ioasys.com.br/${enterprise.photo}`
+
     React.useEffect(() => {
-        const id_enterprise = route.params?.enterpriseId
-        getEnterpriseById({ id_enterprise })
-    }, [ getEnterpriseById, route.params ])
+        getEnterpriseById({ enterpriseId })
+    }, [ enterpriseId, getEnterpriseById, route.params ])
+
+    React.useEffect(() => {
+        if (hasObject(errorEnterprise) || hasObject(enterprise) && (enterprise.id == enterpriseId)) {
+            setLoading(false)
+        }
+    }, [ enterprise, enterpriseId, errorEnterprise ])
 
     return (
-        <>
-
-        </>
+        <ScrollView style={styles.container}>
+            {loading ? (
+                <LoadingSpinner loading={loading}/>
+            ) : (
+                <View style={styles.enterpriseContainer}>
+                    <Image source={{ uri: imageUrl }} style={styles.image} />
+                    <Text style={styles.enterpriseDescription}>
+                        {enterprise.description}
+                    </Text>
+                    <Text style={styles.title}>
+                        {firstLetter(translation("address"))}
+                    </Text>
+                    <Text>
+                        {enterprise.country} {enterprise.city}
+                    </Text>
+                </View>
+            )}
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
-    loadingContainer: {
-        marginTop: 100,
+    container: {
+        paddingTop: 50,
+        flex: 1,
+        backgroundColor: colors.whiteBackground,
     },
+    enterpriseContainer: {
+        alignItems: "center",
+    },
+    title: {
+        textAlign: "justify",
+        margin: 12,
+        fontSize: 18,
+        fontWeight: "bold",
+    },
+    image: {
+        width: 150,
+        height: 150,
+        borderRadius: 150,
+        borderWidth: 1,
+        borderColor: colors.lightGray,
+        shadowColor: colors.black,
+        shadowOffset: {
+            width: 2,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+    },
+    enterpriseDescription: {
+        textAlign: "justify",
+        margin: 20,
+        color: colors.darkGray,
+        lineHeight: 24,
+    }
 })

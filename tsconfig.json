@@ -6,14 +6,15 @@
             "es2017"
         ],
         "allowJs": true,
+        "skipLibCheck": true,
         "jsx": "react-native",
         "noEmit": true,
         "isolatedModules": true,
         "strict": true,
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
         "esModuleInterop": true,
-        "skipLibCheck": false ,
         "baseUrl": "./src"
     },
     "include": ["src","./**/*.ts", "./**/*.tsx", "eslintrc.js"],

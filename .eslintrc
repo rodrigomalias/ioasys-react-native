@@ -2,7 +2,6 @@
     "extends": [
         "eslint:recommended", 
         "plugin:jest/recommended",
-        "plugin:react-hooks/recommended",
         "plugin:react/recommended"
     ],
     "parser": "@typescript-eslint/parser",
@@ -11,9 +10,13 @@
     },
     "plugins": [
         "@typescript-eslint", 
-        "jest"
+        "jest",
+        "react", 
+        "react-hooks"
     ],
     "rules": {
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
         "no-unused-vars": "off",
         "react/jsx-uses-vars": "error",
         "semi": ["error", "never"],

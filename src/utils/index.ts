@@ -1,4 +1,4 @@
-// import i18n from "translations/I18n"
+import i18n from "../translations/I18n"
 
 export const firstLetter = (str: string) => {
     return str.charAt(0).toUpperCase() + str.slice(1)
@@ -27,9 +27,12 @@ export const hasObject = (object: Object) => {
 }
 
 export const hasArray = (array: Array<unknown>) => {
-    return array.length > 0 ? true : false
+    if (array != null && array != undefined) {
+        return array.length > 0 ? true : false
+    }
+    return false
 }
 
-// export const translation = (str: string) => {
-//     return i18n.translate(str)
-// }
+export const translation = (str: string) => {
+    return i18n.translate(str)
+}

@@ -48,7 +48,6 @@ const apiMiddleware = ({ dispatch }: MiddlewareAPI<Dispatch<AnyAction>>) => (nex
 
         const header = await loginStorage.getHeader()
 
-        console.log("header", header)
         axios.defaults.baseURL = settings.services.API_SERVICE
         axios.defaults.headers.common["Content-Type"] = "application/json charset=utf-8"
         if (header && url !== settings.auth) {
@@ -78,7 +77,6 @@ const apiMiddleware = ({ dispatch }: MiddlewareAPI<Dispatch<AnyAction>>) => (nex
             })
             .then((response) => {
                 const { data } = response
-
                 if (url === settings.auth) {
                     saveHeader({
                         "access-token": response.headers["access-token"],

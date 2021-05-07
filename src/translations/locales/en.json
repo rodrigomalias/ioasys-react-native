@@ -1,0 +1,16 @@
+{
+    "login": {
+        "title": "Login",
+        "button": "login",
+        "email": "email",
+        "password": "password",
+        "error": "invalid email or password"
+    },
+    "enterprise": {
+        "singular": "Enterprise",
+        "plural": "Enterprises"
+    },
+    "type": "type",
+    "name": "name",
+    "address": "address"
+}

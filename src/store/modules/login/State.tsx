@@ -1,14 +1,14 @@
 export interface ILoginReducer {
     login: any,
     postSignIn: Function,
-    errorLogin: any,
+    errorLogin: string | null,
 }
 
 const login = {} as any
 
 const initialState: ILoginReducer = {
     login: login,
-    errorLogin: {},
+    errorLogin: null,
     postSignIn: () => {},
 }
 

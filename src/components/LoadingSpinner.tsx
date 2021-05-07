@@ -1,37 +1,24 @@
+import { colors } from "../colors"
 import React from "react"
-import { ActivityIndicator, Dimensions, StyleSheet, View } from "react-native"
-import { connect } from "react-redux"
-import { setIsLoadingSpinner } from "../store/modules/loading/Action"
-import { ILoadingReducer } from "../store/modules/loading/State"
-import { appReducers } from "../store/Store"
+import { ActivityIndicator, StyleSheet, View } from "react-native"
 
 export interface LoadingSpinnerProps {
     loading?: boolean,
     loadingColor?: string
 }
 
-function LoadingSpinner(props: LoadingSpinnerProps & ILoadingReducer) {
-    const { isLoadingSpinner, loading, loadingColor } = props
+export default function LoadingSpinner(props: LoadingSpinnerProps) {
+    const { loading, loadingColor } = props
     return (
-        isLoadingSpinner || loading ? (
-            <View style={loading ? styles.normalSpinner : styles.loadSpinner}>
-                <ActivityIndicator size={"large"} color={loadingColor ? loadingColor : "#01814e"} />
-            </View>
+        loading ? (
+            <ActivityIndicator
+                size={"large"}
+                color={loadingColor ? loadingColor : colors.primaryDark} />
         ) : (
             <></>
         )
     )
 }
-
-const isLoadingReducerData = ({ isLoadingReducer }: typeof appReducers) => {
-    return {
-        ...isLoadingReducer,
-    }
-}
-
-export default connect(isLoadingReducerData, {
-    setIsLoadingSpinner,
-})(LoadingSpinner)
 
 const styles = StyleSheet.create({
     loadSpinner: {
