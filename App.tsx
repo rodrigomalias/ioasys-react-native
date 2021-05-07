@@ -1,11 +1,11 @@
 import "react-native-gesture-handler"
 import React from "react"
+import { NavigationContainer } from "@react-navigation/native"
 import { StatusBar } from "react-native"
 import { Provider } from "react-redux"
-import { store } from "./store/Store"
-import { MainNavigator } from "./navigation"
-import { NavigationContainer } from "@react-navigation/native"
-import { colors } from "./colors"
+import { store } from "./src/store/Store"
+import { MainNavigator } from "./src/navigation"
+import { colors } from "./src/colors"
 
 const App = () => {
     return (

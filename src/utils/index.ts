@@ -11,14 +11,6 @@ export const capitalize = (str: string) => {
         .join(" ")
 }
 
-export const capsLock = (str: string) => {
-    return str.toUpperCase()
-}
-
-export const lowerCase = (str: string) => {
-    return str.toLowerCase()
-}
-
 export const hasObject = (object: Object) => {
     if (object != null && object != undefined) {
         return Object.keys(object).length != 0

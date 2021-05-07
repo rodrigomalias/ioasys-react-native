@@ -1,9 +1,10 @@
 import * as type from "./Types"
 import initialState from "./State"
+import { IEnterprise } from "../../../models/enterprise/IEnterprise"
 
 interface IEnterpriseAction {
     type: string,
-    payload: any
+    payload: Array<IEnterprise> | IEnterprise | string
 }
 
 export default function enterpriseReducer(state = initialState, action: IEnterpriseAction) {

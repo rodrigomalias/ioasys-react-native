@@ -2,7 +2,7 @@ import axios, { Method } from "axios"
 import { settings } from "../settings"
 import { Dispatch, MiddlewareAPI, AnyAction } from "redux"
 
-import { accessDenied, API, apiEnd, apiError, apiStart, API_ERROR } from "./Api"
+import { API, apiEnd, apiError, apiStart } from "./Api"
 import { setIsLoadingSpinner } from "./modules/loading/Action"
 import { LoginStorage } from "../storage/LoginStorage"
 

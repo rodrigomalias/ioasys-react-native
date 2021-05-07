@@ -1,3 +1,4 @@
+import { ILogin } from "models/login/ILogin"
 import { translation, firstLetter } from "../../../utils"
 import { apiRequest } from "../../Api"
 
@@ -16,7 +17,8 @@ const postSignIn = (params: IPostSignInParams) => {
             email: params.email,
             password: params.password,
         },
-        onSuccess: (data: any) => {
+        onSuccess: (data: ILogin) => {
+            console.log("data", data)
             return {
                 type: type.POST_SIGN_IN_FULFILLED,
                 payload: data,

@@ -4,9 +4,10 @@ import { appReducers } from "../../store/Store"
 
 import { Login } from "./Login"
 
-const loginReducerData = ({ loginReducer }: typeof appReducers) => {
+const loginReducerData = ({ loginReducer, isLoadingReducer }: typeof appReducers) => {
     return {
         ...loginReducer,
+        ...isLoadingReducer,
     }
 }
 

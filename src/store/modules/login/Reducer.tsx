@@ -1,9 +1,10 @@
 import * as type from "./Types"
 import initialState from "./State"
+import { ILogin } from "models/login/ILogin"
 
 interface ILoginAction {
     type: string,
-    payload: any
+    payload: string | ILogin
 }
 
 export default function loginReducer(state = initialState, action: ILoginAction) {
@@ -12,6 +13,7 @@ export default function loginReducer(state = initialState, action: ILoginAction)
             return {
                 ...state,
                 login: action.payload,
+                errorLogin: null,
             }
         case type.POST_SIGN_IN_REJECTED:
             return {
@@ -19,6 +21,9 @@ export default function loginReducer(state = initialState, action: ILoginAction)
                 errorLogin: action.payload,
             }
         default:
-            return state
+            return {
+                ...state,
+                login: {},
+            }
     }
 }

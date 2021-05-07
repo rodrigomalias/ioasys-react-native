@@ -8,7 +8,8 @@
     },
     "enterprise": {
         "singular": "Enterprise",
-        "plural": "Enterprises"
+        "plural": "Enterprises",
+        "error": "no enterprise found"
     },
     "type": "type",
     "name": "name",

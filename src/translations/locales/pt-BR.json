@@ -7,8 +7,9 @@
         "error": "email ou senha incorretos"
     },
     "enterprise": {
-        "singular": "Empresa",
-        "plural": "Empresas"
+        "singular": "Empreendimento",
+        "plural": "Empreendimentos",
+        "error": "nenhum empreendimento encontrado"
     },
     "type": "tipo",
     "name": "nome",

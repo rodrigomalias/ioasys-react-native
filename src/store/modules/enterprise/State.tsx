@@ -6,15 +6,14 @@ export interface IEnterpriseReducer {
     getEnterprises: Function,
     enterprise: IEnterprise,
     enterprises: Array<IEnterprise>,
-    errorEnterprises: any,
-    errorEnterprise: any,
-    isLoadingData: boolean
+    errorEnterprises: string,
+    errorEnterprise: string,
 }
 
 const enterprise = {} as IEnterprise
 const enterprises = [] as IEnterprise[]
-const errorEnterprise = {} as any
-const errorEnterprises = {} as any
+const errorEnterprise = ""
+const errorEnterprises = ""
 
 const initialState: IEnterpriseReducer = {
     getEnterpriseById: () => {},
@@ -24,7 +23,6 @@ const initialState: IEnterpriseReducer = {
     enterprises: enterprises,
     errorEnterprise: errorEnterprise,
     errorEnterprises: errorEnterprises,
-    isLoadingData: true
 }
 
 export default initialState

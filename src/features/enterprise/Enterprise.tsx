@@ -27,32 +27,39 @@ export const Enterprise = (props: IEnterpriseReducer) => {
     }, [ enterprise, enterpriseId, errorEnterprise ])
 
     return (
-        <ScrollView style={styles.container}>
-            {loading ? (
-                <LoadingSpinner loading={loading}/>
-            ) : (
-                <View style={styles.enterpriseContainer}>
-                    <Image source={{ uri: imageUrl }} style={styles.image} />
-                    <Text style={styles.enterpriseDescription}>
-                        {enterprise.description}
-                    </Text>
-                    <Text style={styles.title}>
-                        {firstLetter(translation("address"))}
-                    </Text>
-                    <Text>
-                        {enterprise.country} {enterprise.city}
-                    </Text>
+        <View style={styles.container}>
+            <ScrollView>
+                <View style={styles.contentContainer}>
+                    {loading ? (
+                        <LoadingSpinner loading={loading}/>
+                    ) : (
+                        <View style={styles.enterpriseContainer}>
+                            <Image source={{ uri: imageUrl }} style={styles.image} />
+                            <Text style={styles.enterpriseDescription}>
+                                {enterprise.description}
+                            </Text>
+                            <Text style={styles.title}>
+                                {firstLetter(translation("address"))}
+                            </Text>
+                            <Text>
+                                {enterprise.country} {enterprise.city}
+                            </Text>
+                        </View>
+                    )}
                 </View>
-            )}
-        </ScrollView>
+            </ScrollView>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 50,
         flex: 1,
         backgroundColor: colors.whiteBackground,
+    },
+    contentContainer: {
+        paddingTop: 50,
+        paddingBottom: 50,
     },
     enterpriseContainer: {
         alignItems: "center",

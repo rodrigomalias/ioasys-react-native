@@ -1,63 +1,55 @@
-# :space_invader: React Native Template TypeScript
+# Configuração LOCALHOST
+- Necessário ter configurado e instalado o Android Studio assim como o React Native Cli.
+- Necessário ter um smartphone ou emulador configurado
+- Neste projeto foi utilizando somente Android para desenvolvimento e testes.
 
-<p>
-  <a href="https://travis-ci.org/react-native-community/react-native-template-typescript">
-    <img alt="Build Status" src="https://img.shields.io/travis/react-native-community/react-native-template-typescript.svg" target="_blank" />
-  </a>
-  <a href="https://github.com/react-native-community/react-native-template-typescript#readme">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
-  </a>
-  <a href="https://github.com/react-native-community/react-native-template-typescript/graphs/commit-activity">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
-  </a>
-  <a href="https://github.com/react-native-community/react-native-template-typescript/blob/master/LICENSE">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
-  </a>
-</p>
+1. Clone o repositório `ioasys-react-native` na pasta *ioasys-react-native* em sua máquina
 
-> Clean and minimalist React Native template for a quick start with TypeScript.
+2. Vá até a pasta *ioasys-react-native*(root) e use o comando: `npm install` 
+    - Irá instalar todas as dependências em *package.json*
 
-## :star: Features
+3. Instalando o app e subindo no smartphone
+* Use o comando: `npm run android`
+  * Irá rodar o comando `script: { android }` em *package.json* que irá dar início a instalação do app no smartphone
+* Caso falhe o anterior, outra opção é:
+	* Usar o comando `npm run start`
+	* Abrir outra guia do console e usar novamente o comando `npm run android`
+* Comando auxiliar `npm run adb` para subir algumas portas localhost
+* Comando auxiliar `npm run android:clean` para limpar o *gradlew* do android
 
-- Elegant usage directly within the [React Native CLI](https://github.com/react-native-community/cli)
-- Consistent with the default React Native template
-- Minimal additional dependencies
+# Bibliotecas utilizadas
 
-## :arrow_forward: Usage
+* `@react-native-async-storage/async-storage`: Utilizada para guardar informações do header
+* `@react-native-picker/picker`: Utilizada para exibir o picker do tipo da enterprise
+* `@react-navigation/native`: Utilizada para o navigation
+  * `@react-native-community/masked-view`: Necessária para o funcionamento do navigation
+  * `@react-navigation/stack`: Necessária para o funcionamento do navigation
+  * `react-native-gesture-handler`: Necessária para o funcionamento do navigation
+  * `react-native-safe-area-context`: Necessária para o funcionamento do navigation
+  * `react-native-screens`: Necessária para o funcionamento do navigation
+* `axios`: Utilizada para fazer requisição na API
+* `i18n-js`: Utilizada para JSON de textos fixos e possivelmente tradução
+  * `@types/i18n-js`: Necessária para o funcionamento da `i18n-js`
+* `react-native-elements`: Utilizada exibir ícone
+  * `react-native-vector-icons`: Necessária para exibir ícone
+* `redux`: Utilizada para armazenamento de State
+* `react-redux`: Utilizada para armazenamento de State
+* `redux-thunk`: Middleware para Actions assíncronas
+* `eslint`: Configurações do ESLint para padronizar código
+  * `@react-native-community/eslint-config`: Configurações do ESLint
+  * `@typescript-eslint/eslint-plugin`: Configurações do ESLint
+  * `@typescript-eslint/eslint-plugin`: Configurações do ESLint com typescript
+  * `eslint-config-airbnb-typescript`: Configurações do ESLint
+  * `eslint-config-prettier`: Configurações do ESLint com prettier
+  * `eslint-config-airbnb-typescript`: Configurações do ESLint
+  * `eslint-plugin-import`: Configurações do ESLint
+  * `eslint-plugin-jsx-a11y`: Configurações do ESLint
+  * `eslint-plugin-react`: Configurações do ESLint
+  * `eslint-plugin-react-hooks`: Configurações do ESLint
+* `prettier`: Padronização de código
+* `jest`: Utilizada para criação de testes em componentes
 
-```sh
-npx react-native init MyApp --template react-native-template-typescript
-```
+# Utils
 
-### Usage with older versions of React Native
-
-#### e.g. `react-native@0.63.x`
-
-```sh
-npx react-native init MyApp --template react-native-template-typescript@6.5.*
-```
-
-See the below table to find out which version of the template to use.
-
-#### React Native <=> Template Version
-
-| React Native  	| Template  	|
-|---	            |---	        |
-| 0.64  	        | 6.6.*       |
-| 0.63  	        | 6.5.*       |
-| 0.62  	        | 6.4.*       |
-| 0.61  	        | 6.3.*       |
-| 0.60  	        | 6.2.*       |
-
-### Note on the legacy CLI
-There seems to be quite some confusion about the legacy CLI. This template only works with the new CLI. Make sure you have uninstalled the legacy `react-native-cli` first (`npm uninstall -g react-native-cli`), for the below command to work. If you wish to not use `npx`, you can also install the new CLI globally (`npm i -g @react-native-community/cli` or `yarn global add @react-native-community/cli`).
-
-Further information can be found here: https://github.com/react-native-community/cli#about
-
-## :computer: Contributing
-
-Contributions are very welcome. Please check out the [contributing document](CONTRIBUTING.md).
-
-## :bookmark: License
-
-This project is [MIT](LICENSE) licensed.
+* Caso aconteça algum problema relacionado ao JDK do Android
+  - [https://stackoverflow.com/questions/39010338/java-home-supplied-via-org-gradle-java-home-is-invalid-invalid-directory-us](https://stackoverflow.com/questions/39010338/java-home-supplied-via-org-gradle-java-home-is-invalid-invalid-directory-us)

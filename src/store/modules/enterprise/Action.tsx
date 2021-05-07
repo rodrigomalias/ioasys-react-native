@@ -1,5 +1,6 @@
 import { IEnterprise } from "models/enterprise/Ienterprise"
 import { apiRequest } from "../../Api"
+import { translation, firstLetter } from "../../../utils"
 
 import * as type from "./Types"
 
@@ -16,7 +17,8 @@ const getEnterprises = () => {
                 payload: data.enterprises
             }
         },
-        onFailure: (error: any) => {
+        onFailure: () => {
+            const error = firstLetter(translation("enterprise.error"))
             return {
                 type: type.GET_ENTERPRISES_REJECTED,
                 payload: error,
@@ -41,7 +43,8 @@ const getEnterpriseById = (params: IEnterpriseByIdParams) => {
                 payload: data.enterprise,
             }
         },
-        onFailure: (error: any) => {
+        onFailure: () => {
+            const error = firstLetter(translation("enterprise.error"))
             return {
                 type: type.GET_ENTERPRISE_BY_ID_REJECTED,
                 payload: error,
@@ -55,22 +58,21 @@ interface IEnterpriseNameOrTypParams {
     type: string,
 }
 const getEnterprisesNameOrType = (params: IEnterpriseNameOrTypParams) => {
-    console.log(params)
     return apiRequest({
-        url: `/enterprises?enterprise_types=${params.type}&name=${params.name}`,
+        url: "/enterprises",
         method: "GET",
         data: {
             name: params.name,
-            type: params.type
+            enterprise_types: params.type
         },
         onSuccess: (data: IEnterprisesData) => {
-            console.log("data", data)
             return {
                 type: type.GET_ENTERPRISES_NAME_OR_TYPE_FULFILLED,
                 payload: data.enterprises,
             }
         },
-        onFailure: (error: any) => {
+        onFailure: () => {
+            const error = firstLetter(translation("enterprise.error"))
             return {
                 type: type.GET_ENTERPRISES_NAME_OR_TYPE_REJECTED,
                 payload: error,

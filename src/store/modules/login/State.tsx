@@ -1,5 +1,7 @@
+import { ILogin } from "models/login/ILogin"
+
 export interface ILoginReducer {
-    login: any,
+    login: ILogin,
     postSignIn: Function,
     errorLogin: string | null,
 }

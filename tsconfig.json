@@ -15,7 +15,6 @@
         "allowSyntheticDefaultImports": true,
         "resolveJsonModule": true,
         "esModuleInterop": true,
-        "baseUrl": "./src"
     },
     "include": ["src","./**/*.ts", "./**/*.tsx", "eslintrc.js"],
     "exclude": [

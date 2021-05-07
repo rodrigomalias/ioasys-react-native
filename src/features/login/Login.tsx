@@ -4,10 +4,11 @@ import * as React from "react"
 import { Text, TouchableOpacity, View, StyleSheet, TextInput, Image } from "react-native"
 import { ILoginReducer } from "store/modules/login/State"
 import LoadingSpinner from "../../components/LoadingSpinner"
-import { translation, capsLock, hasObject } from "../../utils"
+import { translation, hasObject } from "../../utils"
+import { ILoadingReducer } from "../../store/modules/loading/State"
 
-export const Login = (props: ILoginReducer) => {
-    const { postSignIn, login, errorLogin } = props
+export const Login = (props: ILoginReducer & ILoadingReducer) => {
+    const { postSignIn, login, errorLogin, isLoadingSpinner } = props
 
     const navigation = useNavigation()
     const [ email, setEmail ] = React.useState("testeapple@ioasys.com.br")
@@ -20,14 +21,6 @@ export const Login = (props: ILoginReducer) => {
             navigation.navigate("enterprises")
         }
     }, [ loading, login, navigation ])
-
-    React.useEffect(() => {
-        if (loading && errorLogin && !hasObject(login)) {
-            setTimeout(() => {
-                setLoading(false)
-            }, 1000)
-        }
-    }, [ errorLogin, loading, login ])
 
     const handleLogin = React.useCallback(() => {
         setLoading(true)
@@ -54,14 +47,18 @@ export const Login = (props: ILoginReducer) => {
                     secureTextEntry={true}
                     onChangeText={(password) => setPassword(password)}/>
             </View>
-            <Text>{errorLogin}</Text>
-            <TouchableOpacity onPress={handleLogin} style={styles.loginButton}>
+            <Text style={styles.errorMessage}>
+                {errorLogin}
+            </Text>
+            <TouchableOpacity
+                onPress={handleLogin}
+                style={styles.loginButton}>
                 <Text style={styles.loading}>
-                    {loading && (
+                    {loading && isLoadingSpinner && (
                         <LoadingSpinner loadingColor={colors.white} loading={loading}/>
                     )}
                 </Text>
-                <Text style={styles.loginText}>{capsLock(translation("login.button"))}</Text>
+                <Text style={styles.loginText}>{translation("login.button").toUpperCase()}</Text>
             </TouchableOpacity>
         </View>
     )
@@ -74,11 +71,9 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         backgroundColor: colors.whiteBackground,
     },
-
     image: {
         marginBottom: 40,
     },
-
     inputView: {
         width: "70%",
         height: 45,
@@ -87,12 +82,10 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderRadius: 5,
     },
-
     textInput: {
         width: "100%",
         marginLeft: 5,
     },
-
     loginButton: {
         width: "80%",
         borderRadius: 10,
@@ -104,12 +97,10 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignContent: "center",
     },
-
     loading: {
         marginLeft: 10,
         width: 30,
     },
-
     loginText: {
         flex: 1,
         color: colors.white,
@@ -117,5 +108,8 @@ const styles = StyleSheet.create({
         fontSize: 18,
         textAlign: "center",
         marginRight: 40,
+    },
+    errorMessage: {
+        fontWeight: "bold",
     },
 })
