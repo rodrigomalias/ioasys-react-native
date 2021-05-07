@@ -6,7 +6,7 @@ import { API, apiEnd, apiError, apiStart } from "./Api"
 import { setIsLoadingSpinner } from "./modules/loading/Action"
 import { LoginStorage } from "../storage/LoginStorage"
 
-interface IHeader {
+export interface IHeader {
     "access-token": string
     "client": string
     "uid": string

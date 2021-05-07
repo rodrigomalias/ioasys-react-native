@@ -1,14 +1,8 @@
-import { ILogin } from "../../../models/login/ILogin"
+import * as Model from "../../../models/login/LoginModel"
 
-export interface ILoginReducer {
-    login: ILogin,
-    postSignIn: Function,
-    errorLogin: string | null,
-}
+const login = {} as Model.ILogin
 
-const login = {} as any
-
-const initialState: ILoginReducer = {
+const initialState: Model.ILoginReducer = {
     login: login,
     errorLogin: null,
     postSignIn: () => {},

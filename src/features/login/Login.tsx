@@ -1,11 +1,12 @@
+
+import * as React from "react"
 import { useNavigation } from "@react-navigation/native"
 import { colors } from "../../colors"
-import * as React from "react"
 import { Text, TouchableOpacity, View, StyleSheet, TextInput, Image } from "react-native"
-import { ILoginReducer } from "../../store/modules/login/State"
 import LoadingSpinner from "../../components/LoadingSpinner"
 import { translation, hasObject } from "../../utils"
 import { ILoadingReducer } from "../../store/modules/loading/State"
+import { ILoginReducer } from "../../models/login/LoginModel"
 
 export const Login = (props: ILoginReducer & ILoadingReducer) => {
     const { postSignIn, login, errorLogin, isLoadingSpinner } = props

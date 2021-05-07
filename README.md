@@ -13,7 +13,7 @@
   * Irá rodar o comando `script: { android }` em *package.json* que irá dar início a instalação do app no smartphone
 * Caso falhe o anterior, outra opção é:
 	* Usar o comando `npm run start`
-	* Abrir outra guia do console e usar novamente o comando `npm run android`
+	* Abrir outra guia do prompt e usar novamente o comando `npm run android`
 * Comando auxiliar `npm run adb` para subir algumas portas localhost
 * Comando auxiliar `npm run android:clean` para limpar o *gradlew* do android
 

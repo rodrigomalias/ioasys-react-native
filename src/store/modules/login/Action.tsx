@@ -1,15 +1,9 @@
-import { ILogin } from "../../../models/login/ILogin"
+import * as Model from "../../../models/login/LoginModel"
 import { translation, firstLetter } from "../../../utils"
 import { apiRequest } from "../../Api"
-
 import * as type from "./Types"
 
-interface IPostSignInParams {
-    email: string,
-    password: string,
-}
-
-const postSignIn = (params: IPostSignInParams) => {
+const postSignIn = (params: Model.IPostSignInParams) => {
     return apiRequest({
         url: "/users/auth/sign_in",
         method: "POST",
@@ -17,8 +11,7 @@ const postSignIn = (params: IPostSignInParams) => {
             email: params.email,
             password: params.password,
         },
-        onSuccess: (data: ILogin) => {
-            console.log("data", data)
+        onSuccess: (data: Model.ILogin) => {
             return {
                 type: type.POST_SIGN_IN_FULFILLED,
                 payload: data,

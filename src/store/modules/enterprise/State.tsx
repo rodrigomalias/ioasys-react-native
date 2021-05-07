@@ -1,21 +1,11 @@
-import { IEnterprise } from "../../../models/enterprise/IEnterprise"
+import * as Model from "../../../models/enterprise/EnterpriseModel"
 
-export interface IEnterpriseReducer {
-    getEnterpriseById: Function,
-    getEnterprisesNameOrType: Function,
-    getEnterprises: Function,
-    enterprise: IEnterprise,
-    enterprises: Array<IEnterprise>,
-    errorEnterprises: string,
-    errorEnterprise: string,
-}
-
-const enterprise = {} as IEnterprise
-const enterprises = [] as IEnterprise[]
+const enterprise = {} as Model.IEnterprise
+const enterprises = [] as Model.IEnterprise[]
 const errorEnterprise = ""
 const errorEnterprises = ""
 
-const initialState: IEnterpriseReducer = {
+const initialState: Model.IEnterpriseReducer = {
     getEnterpriseById: () => {},
     getEnterprisesNameOrType: () => {},
     getEnterprises: () => {},

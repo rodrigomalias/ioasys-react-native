@@ -1,9 +1,8 @@
-import LoadingSpinner from "../../components/LoadingSpinner"
-import { IEnterprise } from "../../models/enterprise/Ienterprise"
 import * as React from "react"
+import LoadingSpinner from "../../components/LoadingSpinner"
+import { IEnterprise, IEnterpriseReducer } from "../../models/enterprise/EnterpriseModel"
 import { FlatList, ListRenderItemInfo, StyleSheet, Text, View } from "react-native"
 import { hasObject, hasArray, translation, firstLetter } from "../../utils"
-import { IEnterpriseReducer } from "../../store/modules/enterprise/State"
 import { EnterprisesItem } from "./EnterprisesItem"
 import { colors } from "../../colors"
 import { ILoadingReducer } from "../../store/modules/loading/State"
@@ -16,8 +15,7 @@ export const Enterprises = (props: IEnterpriseReducer & ILoadingReducer) => {
 
     React.useEffect(() => {
         getEnterprises()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [ getEnterprises ])
 
     React.useEffect(() => {
         if (hasArray(enterprises) || hasObject(errorEnterprises)) {

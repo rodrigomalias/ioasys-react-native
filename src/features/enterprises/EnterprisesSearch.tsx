@@ -6,11 +6,11 @@ import { Picker } from "@react-native-picker/picker"
 import { enterpriseTypes, IEnterpriseType } from "./Enterprises.utils"
 import { Icon } from "react-native-elements"
 
-interface IEnterpriseSearch {
+interface IEnterpriseSearchProps {
     callback: Function
 }
 
-export const EnterprisesSearch = (props: IEnterpriseSearch) => {
+export const EnterprisesSearch = (props: IEnterpriseSearchProps) => {
     const { callback } = props
     const [ name, setName ] = React.useState("")
     const [ type, setType ] = React.useState(0)

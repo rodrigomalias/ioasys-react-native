@@ -1,9 +1,10 @@
 import AsyncStorage from "@react-native-async-storage/async-storage"
+import { IHeader } from "../store/Middleware"
 
 export class LoginStorage {
 
     currentLevelKey: string = "HEADER"
-    async getHeader(): Promise<any | null> {
+    async getHeader(): Promise<IHeader | null> {
         try {
             const headerRetrieve = await AsyncStorage.getItem(this.currentLevelKey)
             return headerRetrieve !== null ? JSON.parse(headerRetrieve) : null
@@ -13,7 +14,7 @@ export class LoginStorage {
 
         return null
     }
-    async putHeader(header: any): Promise<void> {
+    async putHeader(header: IHeader): Promise<void> {
         try {
             await AsyncStorage.setItem(this.currentLevelKey, JSON.stringify(header))
         } catch (error) {

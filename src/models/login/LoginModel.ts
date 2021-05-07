@@ -1,4 +1,4 @@
-import { IEnterprise } from "models/enterprise/IEnterprise"
+import { IEnterprise } from "../enterprise/EnterpriseModel"
 
 export interface ILogin {
     enterprise?: IEnterprise,
@@ -19,4 +19,15 @@ export interface ILogin {
         super_angel: boolean
     },
     success: boolean
+}
+
+export interface ILoginReducer {
+    login: ILogin,
+    postSignIn: Function,
+    errorLogin: string | null,
+}
+
+export interface IPostSignInParams {
+    email: string,
+    password: string,
 }

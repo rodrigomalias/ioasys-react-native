@@ -1,15 +1,15 @@
+import * as React from "react"
 import { useNavigation } from "@react-navigation/native"
 import { colors } from "../../colors"
-import { IEnterprise } from "../../models/enterprise/Ienterprise"
-import * as React from "react"
+import { IEnterprise } from "../../models/enterprise/EnterpriseModel"
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { Icon } from "react-native-elements"
 
-interface IEnterprisesItem {
+interface IEnterprisesItemProps {
     enterprise: IEnterprise
 }
 
-export const EnterprisesItem = (props: IEnterprisesItem) => {
+export const EnterprisesItem = (props: IEnterprisesItemProps) => {
     const { enterprise } = props
     const navigation = useNavigation()
 

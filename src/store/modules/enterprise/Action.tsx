@@ -1,17 +1,14 @@
-import { IEnterprise } from "../../../models/enterprise/Ienterprise"
+import * as Model from "../../../models/enterprise/EnterpriseModel"
 import { apiRequest } from "../../Api"
 import { translation, firstLetter } from "../../../utils"
 
 import * as type from "./Types"
 
-interface IEnterprisesData {
-    enterprises: Array<IEnterprise>
-}
 const getEnterprises = () => {
     return apiRequest({
         url: "/enterprises",
         method: "GET",
-        onSuccess: (data: IEnterprisesData) => {
+        onSuccess: (data: Model.IEnterprisesData) => {
             return {
                 type: type.GET_ENTERPRISES_FULFILLED,
                 payload: data.enterprises
@@ -27,17 +24,11 @@ const getEnterprises = () => {
     })
 }
 
-interface IEnterpriseData {
-    enterprise: IEnterprise
-}
-interface IEnterpriseByIdParams {
-    enterpriseId: number
-}
-const getEnterpriseById = (params: IEnterpriseByIdParams) => {
+const getEnterpriseById = (params: Model.IEnterpriseByIdParams) => {
     return apiRequest({
         url: `/enterprises/${params.enterpriseId}`,
         method: "GET",
-        onSuccess: (data: IEnterpriseData) => {
+        onSuccess: (data: Model.IEnterpriseData) => {
             return {
                 type: type.GET_ENTERPRISE_BY_ID_FULFILLED,
                 payload: data.enterprise,
@@ -53,11 +44,7 @@ const getEnterpriseById = (params: IEnterpriseByIdParams) => {
     })
 }
 
-interface IEnterpriseNameOrTypParams {
-    name: string,
-    type: string,
-}
-const getEnterprisesNameOrType = (params: IEnterpriseNameOrTypParams) => {
+const getEnterprisesNameOrType = (params: Model.IEnterpriseNameOrTypParams) => {
     return apiRequest({
         url: "/enterprises",
         method: "GET",
@@ -65,7 +52,7 @@ const getEnterprisesNameOrType = (params: IEnterpriseNameOrTypParams) => {
             name: params.name,
             enterprise_types: params.type
         },
-        onSuccess: (data: IEnterprisesData) => {
+        onSuccess: (data: Model.IEnterprisesData) => {
             return {
                 type: type.GET_ENTERPRISES_NAME_OR_TYPE_FULFILLED,
                 payload: data.enterprises,

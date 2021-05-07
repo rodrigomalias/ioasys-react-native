@@ -1,6 +1,6 @@
 import * as type from "./Types"
 import initialState from "./State"
-import { ILogin } from "../../../models/login/ILogin"
+import { ILogin } from "../../../models/login/LoginModel"
 
 interface ILoginAction {
     type: string,

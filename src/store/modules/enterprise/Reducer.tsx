@@ -1,6 +1,6 @@
 import * as type from "./Types"
 import initialState from "./State"
-import { IEnterprise } from "../../../models/enterprise/IEnterprise"
+import { IEnterprise } from "../../../models/enterprise/EnterpriseModel"
 
 interface IEnterpriseAction {
     type: string,

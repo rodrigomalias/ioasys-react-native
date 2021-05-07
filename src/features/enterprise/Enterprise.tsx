@@ -1,11 +1,11 @@
 import * as React from "react"
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native"
 import { hasObject, translation, firstLetter } from "../../utils"
-import { IEnterpriseReducer } from "../../store/modules/enterprise/State"
 import { RouteProp, useRoute } from "@react-navigation/native"
 import LoadingSpinner from "../../components/LoadingSpinner"
 import { inTest } from "../../../jest/testEnvironment"
 import { colors } from "../../colors"
+import { IEnterpriseReducer } from "../../models/enterprise/EnterpriseModel"
 
 export const Enterprise = (props: IEnterpriseReducer) => {
     const { getEnterpriseById, enterprise, errorEnterprise } = props
